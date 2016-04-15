@@ -19,7 +19,8 @@ var config = {
         include : APP_DIR,
         loader : "babel"
       },
-      { test: /\.css$/, loader: "style-loader!css-loader" }
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.scss$/, loader: "style-loader!css-loader!sass-loader" }
     ]
   },
   plugins: [
