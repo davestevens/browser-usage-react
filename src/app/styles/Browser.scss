@@ -2,8 +2,6 @@
   &__total {
     padding: 10px 15px;
     cursor: pointer;
-    border: 1px solid black;
-    margin-bottom: -1px;
   }
 
   &__versions {
@@ -12,18 +10,8 @@
   }
 
   &.expanded {
-    .Browser__total {
-      margin-bottom: 0;
-    }
-
     .Browser__versions {
       height: auto;
-    }
-  }
-
-  &:last-child {
-    .Browser__total {
-      margin-bottom: 0;
     }
   }
 }

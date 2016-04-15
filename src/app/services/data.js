@@ -1,5 +1,6 @@
 import data from "../data.json";
 import CombineVersion from "./CombineVersion";
+import Colours from "./Colours";
 
 const THRESHOLD = 1;
 
@@ -31,13 +32,19 @@ function totalPercentage(versions) {
 }
 
 function formatData(data) {
+  let colours = new Colours({ count: data.length });
   return data
     .map((datum) => {
       datum.versions = reduceVersions(datum.versions);
       datum.percentage = totalPercentage(datum.versions);
       return datum;
     })
-    .sort((a, b) => b.percentage - a.percentage);
+    .sort((a, b) => b.percentage - a.percentage)
+    .map((datum, index) => {
+      datum.colour = colours.create(index);
+      datum.highlight = colours.create(index, { alpha: 0.75 });
+      return datum;
+    });
 }
 
 function formatChartData(data) {

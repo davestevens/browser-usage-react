@@ -23,7 +23,9 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <nav><span>Browser Usage</span></nav>
+        <nav>
+          <div className="content">Browser Usage</div>
+        </nav>
         <div className="content">
           <div className="chartContainer">
             <Pie data={ this.state.chartData } options={ chartOptions } width="750" height="600" />

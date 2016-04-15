@@ -14,7 +14,7 @@ class Browser extends React.Component {
   render() {
     return (
       <div className={this.state.expanded ? "Browser expanded" : "Browser"} onClick={ this._handleExpandBrowser.bind(this) }>
-        <div className="Browser__total">
+        <div className="Browser__total" style={ { "background-color": this.props.colour } }>
           <h4>
             { this.props.name }
             <span className="badge badge--total">{ this.props.percentage.toFixed(2) }%</span>

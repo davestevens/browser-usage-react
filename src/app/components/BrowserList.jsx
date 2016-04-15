@@ -23,6 +23,7 @@ class BrowserList extends React.Component {
         <Browser name={ browser.name }
                  percentage={ browser.percentage }
                  versions={ browser.versions }
+                 colour={ browser.colour }
                  onUpdate={ this._handleVersionUpdate.bind(this, index) }
         />
       )
