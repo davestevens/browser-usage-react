@@ -40,4 +40,42 @@ function formatData(data) {
     .sort((a, b) => b.percentage - a.percentage);
 }
 
-export default formatData(data);
+function formatChartData(data) {
+  let versions = [],
+      unsupported = 0,
+      total = 0;
+  data.forEach((browser) => {
+    browser.versions.forEach((version) => {
+      total += version.percentage;
+      if (!version.active) {
+        unsupported += version.percentage;
+        return;
+      }
+      versions.push({
+        value: version.percentage.toFixed(2),
+        color: "#F7464A",
+        highlight: "#FF5A5E",
+        label: `${browser.name} - ${version.label}`
+      });
+    });
+  });
+  versions.push({
+    value: unsupported.toFixed(2),
+    color: "rgba(0, 0, 0, 0.4)",
+    highlight: "rgba(0, 0, 0, 0.25)",
+    label: "Unsupported Browser"
+  });
+  versions.push({
+    value: (100 - total).toFixed(2),
+    color: "rgba(0, 0, 0, 0.75)",
+    highlight: "rgba(0, 0, 0, 0.5)",
+    label: "Unknown Browser"
+  });
+  return versions;
+}
+
+export default {
+  data: formatData(data),
+  formatData: formatData,
+  formatChartData: formatChartData
+}
