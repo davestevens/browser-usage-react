@@ -16,5 +16,9 @@
 
   &__badge {
     @extend .badge;
+
+    &--current {
+      background-color: #337ab7;
+    }
   }
 }

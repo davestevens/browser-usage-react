@@ -2,6 +2,17 @@
   &__total {
     padding: 10px 15px;
     cursor: pointer;
+    border: 1px solid black;
+  }
+
+  &__versions {
+    height: 0;
+    overflow: hidden;
+  }
+
+  &.expanded {
+    .Browser__versions {
+      height: auto;
+    }
   }
 }
-
