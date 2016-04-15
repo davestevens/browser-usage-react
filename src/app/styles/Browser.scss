@@ -20,4 +20,10 @@
       height: auto;
     }
   }
+
+  &:last-child {
+    .Browser__total {
+      margin-bottom: 0;
+    }
+  }
 }

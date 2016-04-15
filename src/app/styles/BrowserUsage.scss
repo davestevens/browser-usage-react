@@ -1,5 +1,54 @@
+html, body {
+  margin: 0;
+}
+
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   color: #333;
+  margin-top: 70px;
+}
+
+nav {
+  background-color: #222;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  span {
+    margin: 0;
+    color: #9d9d9d;
+    float: left;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: normal;
+  }
+}
+
+.content {
+  > div {
+    float: left;
+    min-height: 1px;
+  }
+
+  .chartContainer {
+    width: 66.66%;
+  }
+
+  .browserList {
+    width: 33.33%;
+  }
+
+  &:before {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
 }

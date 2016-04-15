@@ -7,7 +7,15 @@ import data from "./services/data";
 class App extends React.Component {
   render () {
     return (
-      <BrowserList data={ this.props.data } />
+      <div>
+        <nav><span>Browser Usage</span></nav>
+        <div className="content">
+          <div className="chartContainer"></div>
+          <div className="browserList">
+            <BrowserList data={ this.props.data } />
+          </div>
+        </div>
+      </div>
     );
   }
 }
