@@ -20,7 +20,10 @@ function reduceVersions(versions) {
   if (combinedVersion.any()) {
     combinedVersions.push(combinedVersion.build());
   }
-  return combinedVersions;
+  return combinedVersions.map((v) => {
+    v.active = true;
+    return v;
+  });
 }
 
 function totalPercentage(versions) {
@@ -31,7 +34,7 @@ function formatData(data) {
   return data
     .map((datum) => {
       datum.versions = reduceVersions(datum.versions);
-      datum.percentage = totalPercentage(datum.versions)
+      datum.percentage = totalPercentage(datum.versions);
       return datum;
     })
     .sort((a, b) => b.percentage - a.percentage);

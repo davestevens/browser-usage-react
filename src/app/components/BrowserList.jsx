@@ -3,17 +3,22 @@ import Browser from "./Browser.jsx";
 
 class BrowserList extends React.Component {
   render() {
-    let browsers = this.props.data.map((browser) => {
-      return (
-        <Browser name={ browser.name } percentage={ browser.percentage } versions={ browser.versions } />
-      )
-    });
-
     return (
       <div className="BrowserList">
-        { browsers }
+        { this._renderBrowsers() }
       </div>
     );
+  }
+
+  _renderBrowsers() {
+    return this.props.data.map((browser) => {
+      return (
+        <Browser name={ browser.name }
+                 percentage={ browser.percentage }
+                 versions={ browser.versions }
+        />
+      )
+    });
   }
 }
 
