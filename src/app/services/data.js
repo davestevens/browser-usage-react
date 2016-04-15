@@ -49,12 +49,11 @@ function formatChartData(data) {
       total += version.percentage;
       if (!version.active) {
         unsupported += version.percentage;
-        return;
       }
       versions.push({
-        value: version.percentage.toFixed(2),
-        color: "#F7464A",
-        highlight: "#FF5A5E",
+        value: version.active ? version.percentage.toFixed(2) : 0,
+        color: browser.colour,
+        highlight: browser.highlight,
         label: `${browser.name} - ${version.label}`
       });
     });
